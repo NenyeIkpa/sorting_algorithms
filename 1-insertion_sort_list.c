@@ -35,7 +35,10 @@ void insertion_sort_list(listint_t **list)
  * values placed in nodes)
  *
  * @curr: current node in list
+ * @nxt: next node in list
  * @list: pointer to doubly linked list
+ *
+ * Return: pointer to curr
  */
 
 listint_t *is_lower(listint_t *curr, listint_t *nxt, listint_t **list)
@@ -46,7 +49,7 @@ listint_t *is_lower(listint_t *curr, listint_t *nxt, listint_t **list)
 	{
 		temp = curr;
 		if ((nxt->n) < (curr->n))
-		{	
+		{
 			curr->prev->next = nxt;
 			curr->next = nxt->next;
 			nxt->next = temp->next;
