@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdio.h>
 
 /**
  * selection_sort - selection sort algorithm
@@ -9,22 +10,25 @@
 
 void selection_sort(int *array, size_t size)
 {
-	int k = 0, i, j, val, n;
+	int i = 0, j = 0, val, n;
 
 	n = (int)size;
 	if (size < 2)
 		return;
-	while (k < n)
+	while (i < n)
 	{
-		i = k;
 		j = i + 1;
-		if (array[i] > array[j])
+		while (j < n)
 		{
-			val = array[j];
-			array[j] = array[i];
-			array[i] = val;
-			i++;
+			if (array[i] > array[j])
+			{
+				val = array[i];
+				array[i] = array[j];
+				array[j] = val;
+			}
+			j++;
 		}
-		k++;
+		print_array(array, size);
+		i++;
 	}
 }
