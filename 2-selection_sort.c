@@ -9,7 +9,7 @@
 
 void selection_sort(int *array, size_t size)
 {
-	int k = 0, j, val, n;
+	int k = 0, i, j, val, n;
 
 	n = (int)size;
 	if (size < 2)
@@ -20,8 +20,8 @@ void selection_sort(int *array, size_t size)
 		j = i + 1;
 		if (array[i] > array[j])
 		{
-			val = array[j]
-			array[j] = array[i]
+			val = array[j];
+			array[j] = array[i];
 			array[i] = val;
 			i++;
 		}
