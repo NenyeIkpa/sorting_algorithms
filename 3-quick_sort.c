@@ -26,31 +26,34 @@ void quick_sort(int *array, size_t size)
 
 void partition_sort(int *array, int lowerbound, int upperbound)
 {
-	int pivot = 0;
-	int start = 0, end = 0, val = 0;
+	int start, end, val;
 
 	if (lowerbound < upperbound)
 	{
-		pivot = lowerbound;
 		start = lowerbound;
 		end = upperbound;
 		while (start < end)
 		{
-			while (array[start] <= array[pivot])
-				start++;
-			while (array[end] > array[pivot])
+			while (array[start] < array[end])
 				end--;
 			if (start < end)
 			{
 				val = array[start];
 				array[start] = array[end];
 				array[end] = val;
+				start++;
+				print_array(array, (size_t)upperbound + 1);
+			}
+			while (array[end] >= array[start])
+				start++;
+			if (start < end)
+			{
+				val = array[start];
+				array[start] = array[end];
+				array[end] = val;
+				end--;
 			}
 		}
-		val = array[lowerbound];
-		array[lowerbound] = array[end];
-		array[end] = val;
-		print_array(array, (size_t)upperbound + 1);
 		partition_sort(array, lowerbound, end - 1);
 		partition_sort(array, end + 1, upperbound);
 	}
